@@ -33,8 +33,18 @@ function App() {
           }
         />
 
-        <Route path="/seeker/*" element={<Seekerroutes />} />
+        {/* <Route path="/seeker/*" element={<Seekerroutes />} /> */}
         {/* <Route path="/logout" element={<Logout />} /> */}
+
+        <Route
+          path="/seeker/*"
+          element={
+            <ProtectedRoute
+              roles={['jobseeker']} // Only allow employer role
+              component={Seekerroutes}
+            />
+          }
+        />
        
       </Routes>
      
